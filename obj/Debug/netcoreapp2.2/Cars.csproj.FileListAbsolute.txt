@@ -1,0 +1,11 @@
+/Users/Guest/Desktop/Cars-C--constructor/bin/Debug/netcoreapp2.2/Cars.deps.json
+/Users/Guest/Desktop/Cars-C--constructor/bin/Debug/netcoreapp2.2/Cars.runtimeconfig.json
+/Users/Guest/Desktop/Cars-C--constructor/bin/Debug/netcoreapp2.2/Cars.runtimeconfig.dev.json
+/Users/Guest/Desktop/Cars-C--constructor/bin/Debug/netcoreapp2.2/Cars.dll
+/Users/Guest/Desktop/Cars-C--constructor/bin/Debug/netcoreapp2.2/Cars.pdb
+/Users/Guest/Desktop/Cars-C--constructor/obj/Debug/netcoreapp2.2/Cars.csprojAssemblyReference.cache
+/Users/Guest/Desktop/Cars-C--constructor/obj/Debug/netcoreapp2.2/Cars.csproj.CoreCompileInputs.cache
+/Users/Guest/Desktop/Cars-C--constructor/obj/Debug/netcoreapp2.2/Cars.AssemblyInfoInputs.cache
+/Users/Guest/Desktop/Cars-C--constructor/obj/Debug/netcoreapp2.2/Cars.AssemblyInfo.cs
+/Users/Guest/Desktop/Cars-C--constructor/obj/Debug/netcoreapp2.2/Cars.dll
+/Users/Guest/Desktop/Cars-C--constructor/obj/Debug/netcoreapp2.2/Cars.pdb
