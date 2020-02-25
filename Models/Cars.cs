@@ -22,9 +22,19 @@ namespace Dealership.Models
       return _makeModel;
     }
 
-    public bool WorthBuying(int _maxPrice, int _maxMileage)
+    public int GetPrice()
     {
-      return (_price < _maxPrice && _miles < _maxMileage);
+      return _price;
+    }
+
+    public int GetMiles()
+    {
+      return _miles;
+    }
+
+    public bool WorthBuying(int maxPrice, int maxMileage)
+    {
+      return (_price < maxPrice && _miles < maxMileage);
     }
   }
 }

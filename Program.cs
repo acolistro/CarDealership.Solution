@@ -39,7 +39,10 @@ namespace Dealership
       else {
         foreach(Car automobile in CarsMatchingSearch)
         {
+            Console.WriteLine("----------------------");
             Console.WriteLine(automobile.GetMakeModel());
+            Console.WriteLine(automobile.GetMiles() + " miles");
+            Console.WriteLine("$" + automobile.GetPrice());
         }
       }
     }
