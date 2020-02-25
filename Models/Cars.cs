@@ -17,6 +17,11 @@ namespace Dealership.Models
       _message = message;
     }
 
+    public void SetPrice(int newPrice)
+    {
+      _price = newPrice;
+    }
+
     public string GetMakeModel()
     {
       return _makeModel;
