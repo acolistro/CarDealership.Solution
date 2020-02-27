@@ -4,42 +4,22 @@ namespace Dealership.Models
 {
   public class Car
   {
-    private string _makeModel;
-    private int _price;
-    private int _miles;
-    private string _message;
+    public string _makeModel { get; set; }
+    public int _price { get; set; }
+    public int _miles { get; set; }
+    public string _message { get; set; }
 
     public Car(string makeModel, int price, int miles, string message)
     {
-      _makeModel = makeModel;
-      _price = price;
-      _miles = miles;
-      _message = message;
-    }
-
-    public void SetPrice(int newPrice)
-    {
-      _price = newPrice;
+      MakeModel = makeModel;
+      Price = price;
+      Miles = miles;
+      Message = message;
     }
 
     public static string MakeSound(string sound)
     {
       return "Our cars sound like " + sound;
-    }
-
-    public string GetMakeModel()
-    {
-      return _makeModel;
-    }
-
-    public int GetPrice()
-    {
-      return _price;
-    }
-
-    public int GetMiles()
-    {
-      return _miles;
     }
 
     public bool WorthBuying(int maxPrice, int maxMileage)
