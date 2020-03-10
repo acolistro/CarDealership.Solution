@@ -1,0 +1,38 @@
+@using CarDealership.Models;
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Car Dealership</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <div class="container">
+        <div class="jumbotron">
+          <h1>Lonnie's Car Dealership</h1>
+        </div>
+        <h3>Current cars on our lot:</h3>
+        <ul>
+          @foreach (Car car in Model)
+          {
+            <li>@car.MakeModel</li>
+            <ul>
+              <li>Price: $@car.Price</li>
+              <li>Miles: @car.Miles</li>
+              <li>@car.Message</li>
+            </ul>
+          }
+        </ul>
+        <form action="/search" method="post">
+          <h3>Search for specific cars on Lonnie's Lot</h3>
+          <label for="price">Enter a maximum price:</label>
+          <input id="price" name="price" type="text">
+          <label for="mileage">Enter a maximum mileage:</label>
+          <input id="mileage" name="mileage" type="text">
+          <button type="submit">Go!</button>
+        </form>
+        <a href="/add">Click here to add a car to the lot!</a>
+      </div>
+  </body>
+</html>
