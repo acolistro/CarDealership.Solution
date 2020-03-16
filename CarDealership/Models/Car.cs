@@ -29,6 +29,24 @@ namespace CarDealership.Models
       Id = id;
     }
 
+    public override bool Equals(System.Object otherCar)
+    {
+      if (!(otherCar is Car))
+      {
+        return false;
+      }
+      else
+      {
+        Car newCar = (Car) otherCar;
+        bool makeModelEquality = (this.MakeModel == newCar.MakeModel);
+        bool priceEquality = (this.Price == newCar.Price);
+        bool milesEquality = (this.Miles == newCar.Miles);
+        bool messageEquality = (this.Message == newCar.Message);
+        bool idEquality = (this.Id == newCar.Id);
+        return (makeModelEquality && priceEquality && milesEquality && messageEquality && idEquality);
+      }
+    }
+
     public static List<Car> GetAll()
     {
       List<Car> allCars = new List<Car> { };

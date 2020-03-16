@@ -27,14 +27,14 @@ namespace CarDealership.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-    // [TestMethod]
-    // public void Equals_ReturnsTrueIfDescriptionsAreTheSame_Item()
-    // {
-    //   Item firstItem = new Item("Mow the lawn");
-    //   Item secondItem = new Item("Mow the lawn");
+    [TestMethod]
+    public void Equals_ReturnsTrueIfPropertiesAreTheSame_Car()
+    {
+      Car firstCar = new Car("1974 Volkswagen Thing", 1100, 368792, "avoid this car");
+      Car secondCar = new Car("1974 Volkswagen Thing", 1100, 368792, "avoid this car");
 
-    //   Assert.AreEqual(firstItem, secondItem);
-    // }
+      Assert.AreEqual(firstCar, secondCar);
+    }
 
     // [TestMethod]
     // public void Save_SavesToDatabase_ItemList()
