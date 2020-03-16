@@ -128,17 +128,51 @@ namespace CarDealership.Models
       return (Price <= maxPrice && Miles <= maxMileage);
     }
 
-    // public static void SearchCars(string maxCash, string maxDistance)
-    // {
-    //   int maxPrice = int.Parse(maxCash);
-    //   int maxMileage = int.Parse(maxDistance);
-    //   foreach (Car automobile in allCars)
-    //   {
-    //     if (automobile.WorthBuying(maxPrice, maxMileage))
-    //     {
-    //       CarsMatchingSearch.Add(automobile);
-    //     }
-    //   }
-    // }
+    public static void SearchCars(string maxCash, string maxDistance)
+    {
+      List<Car> allCars = Car.GetAll();
+      int maxPrice = int.Parse(maxCash);
+      int maxMileage = int.Parse(maxDistance);
+      foreach (Car automobile in allCars)
+      {
+        if (automobile.WorthBuying(maxPrice, maxMileage))
+        {
+          CarsMatchingSearch.Add(automobile);
+        }
+      }
+    }
+
+    public static Car Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM `cars` WHERE id = @thisId;";
+      MySqlParameter thisId = new MySqlParameter();
+      thisId.ParameterName = "@thisId";
+      thisId.Value = id;
+      cmd.Parameters.Add(thisId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int carId = 0;
+      string carMakeModel = "";
+      int carPrice = 0;
+      int carMiles = 0;
+      string carMessage = "";
+      while (rdr.Read())
+      {
+        carId = rdr.GetInt32(0);
+        carMakeModel = rdr.GetString(1);
+        carPrice = rdr.GetInt32(2);
+        carMiles = rdr.GetInt32(3);
+        carMessage = rdr.GetString(4);
+      }
+      Car foundCar= new Car(carMakeModel, carPrice, carMiles, carMessage, carId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return foundCar;
+    }
   }
 }
