@@ -20,18 +20,18 @@ namespace CarDealership.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/search")]
-    public ActionResult Search(string price, string mileage)
-    {
-      Car.SearchCars(price, mileage);
-      return View(Car.CarsMatchingSearch);
-    }
+    // [HttpPost("/search")]
+    // public ActionResult Search(string price, string mileage)
+    // {
+    //   Car.SearchCars(price, mileage);
+    //   return View(Car.CarsMatchingSearch);
+    // }
 
-    [HttpGet("/index")]
-    public ActionResult Index()
-    {
-      return View(Car.AllCars);
-    }
+    // [HttpGet("/index")]
+    // public ActionResult Index()
+    // {
+    //   return View(Car.AllCars);
+    // }
 
   }
 }
