@@ -46,21 +46,19 @@ namespace CarDealership.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
-    // [TestMethod]
-    // public void GetAll_ReturnsItems_ItemList()
-    // {
-    //   string description01 = "Walk the dog";
-    //   string description02 = "Wash the dishes";
-    //   Item newItem1 = new Item(description01);
-    //   newItem1.Save(); // New code
-    //   Item newItem2 = new Item(description02);
-    //   newItem2.Save(); // New code
-    //   List<Item> newList = new List<Item> { newItem1, newItem2 };
+    [TestMethod]
+    public void GetAll_ReturnsItems_CarList()
+    {
+      Car newCar1 = new Car("1974 Volkswagen Thing", 1100, 368792, "avoid this car");
+      newCar1.Save(); 
+      Car newCar2 = new Car("1980 Yugo Koral", 700, 56000, "not your best choice");
+      newCar2.Save();
+      List<Car> newList = new List<Car> { newCar1, newCar2 };
 
-    //   List<Item> result = Item.GetAll();
+      List<Car> result = Car.GetAll();
 
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
+      CollectionAssert.AreEqual(newList, result);
+    }
 
     // [TestMethod]
     // public void Find_ReturnsCorrectItemFromDatabase_Item()
