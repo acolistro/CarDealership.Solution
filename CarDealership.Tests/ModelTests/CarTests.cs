@@ -36,15 +36,15 @@ namespace CarDealership.Tests
       Assert.AreEqual(firstCar, secondCar);
     }
 
-    // [TestMethod]
-    // public void Save_SavesToDatabase_ItemList()
-    // {
-    //   Item testItem = new Item("Mow the lawn");
-    //   testItem.Save();
-    //   List<Item> result = Item.GetAll();
-    //   List<Item> testList = new List<Item>{testItem};
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
+    [TestMethod]
+    public void Save_SavesToDatabase_CarList()
+    {
+      Car testCar = new Car("1974 Volkswagen Thing", 1100, 368792, "avoid this car");
+      testCar.Save();
+      List<Car> result = Car.GetAll();
+      List<Car> testList = new List<Car>{testCar};
+      CollectionAssert.AreEqual(testList, result);
+    }
 
     // [TestMethod]
     // public void GetAll_ReturnsItems_ItemList()

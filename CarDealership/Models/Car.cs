@@ -92,6 +92,37 @@ namespace CarDealership.Models
       return "Our cars sound like " + sound;
     }
 
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO cars (makeModel, price, miles, message) VALUES (@CarMakeModel, @CarPrice, @CarMiles, @CarMessage);";
+      MySqlParameter makeModel = new MySqlParameter();
+      makeModel.ParameterName = "@CarMakeModel";
+      makeModel.Value = this.MakeModel;
+      cmd.Parameters.Add(makeModel);
+      MySqlParameter price = new MySqlParameter();
+      price.ParameterName = "@CarPrice";
+      price.Value = this.Price;
+      cmd.Parameters.Add(price);
+      MySqlParameter miles = new MySqlParameter();
+      miles.ParameterName = "@CarMiles";
+      miles.Value = this.Miles;
+      cmd.Parameters.Add(miles);  
+      MySqlParameter message = new MySqlParameter();
+      message.ParameterName = "@CarMessage";
+      message.Value = this.Message;
+      cmd.Parameters.Add(message);               
+      cmd.ExecuteNonQuery();
+      Id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public bool WorthBuying(int maxPrice, int maxMileage)
     {
       return (Price <= maxPrice && Miles <= maxMileage);
